@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Akmuo Šulinys Žirklės</title>
+</head>
+<body>
+    <h1>Vaskiči!!! </h1>
+    <h3> {{ session.get('round', 1) }} roundas | Tavo taškai: {{ session.get('user_score', 0) }} | Mano taškai: {{ session.get('computer_score', 0) }}</h3>
+    <form action="/play" method="post">
+        <button type="submit" name="choice" value="Akmuo">Akmuo</button>
+        <button type="submit" name="choice" value="Šulinys">Šulinys</button>
+        <button type="submit" name="choice" value="Žirklės">Žirklės</button>
+    </form>
+
+    {% if result %}
+    <h2>Rezultatas: {{ result }}</h2>
+    <p>Tavo ginklas: <strong>{{ user_choice }}</strong></p>
+    <p>Mano ginklas: <strong>{{ computer_choice }}</strong></p>
+    {% endif %}
+</body>
+</html>
